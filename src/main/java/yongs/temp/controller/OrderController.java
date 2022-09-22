@@ -30,12 +30,12 @@ public class OrderController {
 	OrderService orderService;
 	
 	@GetMapping("/useremail/{useremail}")
-	public User findByUserEmail(@PathVariable("useremail") String useremail) throws Exception {
+	public User findByUserEmail(@PathVariable("useremail") String useremail) {
 		log.debug("OrderController.findByUserEmail()");
 		return userClient.findByEmail(useremail);
 	}
 	@GetMapping("/productname/{productname}")
-	public List<Product> findByRegexpName(@PathVariable("productname") String productname) throws Exception {
+	public List<Product> findByRegexpName(@PathVariable("productname") String productname) {
 		log.debug("OrderController.findByRegexpName()");
 		return productClient.findByRegexpName(productname);
 	}
@@ -47,7 +47,7 @@ public class OrderController {
     }
 
 	@GetMapping("/all/{useremail}")
-	public List<Order> findByUser(@PathVariable("useremail") String useremail) throws Exception {
+	public List<Order> findByUser(@PathVariable("useremail") String useremail) {
 		log.debug("OrderController.findAllByUser()");
 		return orderService.findByUser(useremail);
 	}
